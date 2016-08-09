@@ -1,1 +1,65 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+iframe {
+  display: block;
+}
+#wrap {
+  position: relative;
+  height: 100%;
+  min-height: 600px;
+  min-width: 1024px;
+}
+#top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 60px;
+  background: #333;
+}
+#top a {
+  display: block;
+  width: 200px;
+  line-height: 60px;
+  text-align: center;
+  background: #999;
+  color: #fff;
+}
+#left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 200px;
+  height: 100%;
+  background: #000;
+}
+#main {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 60px 0 0 200px;
+}
+#floating {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  z-index: 11;
+  height: 50%;
+  width: 50%;
+  background: #fff;
+}
+#mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
 /*# sourceMappingURL=index1.css.map */
