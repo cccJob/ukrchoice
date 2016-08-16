@@ -13,7 +13,7 @@ ul.noticeList li { margin-bottom:14px; line-height:16px }
 .toc-list li li { padding-left:20px; line-height:18px }
 .toc-list li { line-height:1.8 }
 html { font-size:16px }
-body { font-size:100%; font-family:"Helvetica Neue", Arial, sans-serif; color:#333; background:white;overflow:hidden}
+body { font-size:100%; font-family:"Helvetica Neue", Arial, sans-serif; color:#333; background:white;}
 p{line-height: 1.5;
 margin: 1em 0;}
 code {
