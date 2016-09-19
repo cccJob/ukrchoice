@@ -1,0 +1,83 @@
+html,
+body {
+  /* 这是针对缺省样式 (必须的) */
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+  /* 滑轨两头的监听按钮颜色 */
+  /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+}
+html ::-webkit-scrollbar,
+body ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+html ::-webkit-scrollbar-track,
+body ::-webkit-scrollbar-track {
+  background-color: #262626;
+}
+html ::-webkit-scrollbar-thumb,
+body ::-webkit-scrollbar-thumb {
+  background-color: #0191D6;
+}
+html ::-webkit-scrollbar-button,
+body ::-webkit-scrollbar-button {
+  display: none;
+  background-color: #262626;
+}
+html ::-webkit-scrollbar-corner,
+body ::-webkit-scrollbar-corner {
+  background-color: black;
+}
+#wrap {
+  position: relative;
+}
+#top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  min-height: 100px;
+  background: #000000 url(../img/top-bg.png);
+}
+#top a {
+  display: block;
+  width: 200px;
+  line-height: 100px;
+  text-align: center;
+}
+#top a img {
+  width: 80%;
+  vertical-align: middle;
+}
+#left {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 200px;
+  height: 100%;
+  padding: 100px 0 0 ;
+  background: #2d2d2d;
+}
+#left .l-c {
+  height: 100%;
+  overflow: auto;
+}
+#left .hid-btn {
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  height: 65px;
+  width: 12px;
+  background: url(../img/yincang.png);
+}
+#main {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 100px 0 0 200px;
+}
+#main .m-c {
+  height: 100%;
+}
