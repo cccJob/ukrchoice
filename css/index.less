@@ -4,10 +4,10 @@ html,body{
 	::-webkit-scrollbar-thumb {background-color: #0191D6;} /* 滑块颜色 */
 	::-webkit-scrollbar-button {display:none;background-color: #262626;} /* 滑轨两头的监听按钮颜色 */
 	::-webkit-scrollbar-corner {background-color: black;} /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
-
 }
 #wrap{
 	position:relative;
+	min-width: 1007px;
 }
 // 顶部
 #top{
@@ -60,5 +60,38 @@ html,body{
 	padding:100px 0 0 200px;
 	.m-c{
 		height:100%;
+	}
+}
+// 菜单
+#menu{
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:100;
+	width:100%;
+	height:100%;
+	background: rgba(0,0,0,0.0);
+	transition: background 0.3s;
+	&.active{
+		display:block;
+		background: rgba(0,0,0,0.3);
+	}
+	.menu-c{
+		position:absolute;
+		left:50%;
+		top:50%;
+		width: 650px;
+		height: 450px;
+		margin:-225px 0 0 -325px;
+		background: #fff;
+		box-shadow: 4px 4px 3px rgba(0,0,0,.3);
+		transform:scale(0.6);
+		opacity: 0.3;
+		transition: all cubic-bezier(0.15, 0.68, 0.49, 0.96) 0.5s;
+		&.active{
+			transform:scale(1);
+			opacity: 1;
+		}
 	}
 }
