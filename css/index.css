@@ -126,15 +126,13 @@
 #menu .menu-c .menu-c-t .menuChange span {
   display: inline-block;
   padding: 5px 10px;
-  color: #717679;
   font-weight: 700;
+  color: #9A9A9A;
 }
-#menu .menu-c .menu-c-t .menuChange span:nth-child(1) {
+#menu .menu-c .menu-c-t .menuChange span.active {
+  color: #717679;
   border-radius: 3px;
   background: linear-gradient(180deg, #e7e7e7, #e0e0e0, #d9d9d9);
-}
-#menu .menu-c .menu-c-t .menuChange span:nth-child(2) {
-  color: #9A9A9A;
 }
 #menu .menu-c .menu-c-t .menuClose {
   float: right;
