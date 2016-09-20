@@ -26,14 +26,16 @@ $(function() {
     });
 
     $(window).on("keydown", function(e) {
-        console.log(e, e.keyCode);
-        e.preventDefault();
-        if (e.keyCode == 27 && $("#menu").hasClass("active")) { //Esc
-            menuHid();
-        }
-        if (e.ctrlKey && e.keyCode == 79) {
-            menuShow();
-        }
+    	if(e.keyCode != 123 && e.keyCode != 116){//f12 f5
+    		console.log(e, e.keyCode);
+    		e.preventDefault();
+    		if (e.keyCode == 27 && $("#menu").hasClass("active")) { //Esc
+    		    menuHid();
+    		}
+    		if (e.ctrlKey && e.keyCode == 79) {
+    		    menuShow();
+    		}
+    	}
     });
 
 });
