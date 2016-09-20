@@ -1,0 +1,33 @@
+#top a:hover {
+  background: rgba(45, 45, 45, 0.7);
+}
+#top a:active {
+  background: rgba(255, 255, 255, 0.1);
+}
+#left .hid-btn {
+  background: url(../img/yincang.png);
+}
+#menu {
+  background: none;
+}
+#menu.active {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f000000', endColorstr='#4f000000');
+}
+#menu .menu-c {
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  opacity: 0;
+}
+#menu .menu-c.active {
+  opacity: 1;
+}
+#menu .menu-c .menu-c-t .menuClose {
+  background: url(../img/ie/close.png) center no-repeat;
+}
+#menu .menu-c .menu-c-t .menuClose:hover {
+  background: #d44027 url(../img/ie/closeA.png) center no-repeat;
+}
+#menu .menu-c .menu-c-t .menuClose:active {
+  background: #b7331d url(../img/ie/closeA.png) center no-repeat;
+}

@@ -1,0 +1,45 @@
+// 顶部
+#top{
+	a{
+
+		&:hover{
+			background: rgba(45,45,45,0.7);
+		}
+		&:active{
+			background: rgba(255,255,255,0.1);
+		}
+	}
+}
+#left{
+	// 隐藏按钮
+	.hid-btn{
+		background: url(../img/yincang.png);
+	}
+}
+// 菜单
+#menu{
+	background: none;
+	&.active{
+		background: none;
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f000000', endColorstr='#4f000000');//255*0.3 再转16进制
+	}
+	.menu-c{
+		box-shadow: 4px 4px 3px rgba(0,0,0,.3);
+		transform:scale(1);
+		opacity: 0;
+		&.active{
+			opacity: 1;
+		}
+		.menu-c-t{
+			.menuClose{
+				background: url(../img/ie/close.png) center no-repeat;
+				&:hover{
+					background: #d44027 url(../img/ie/closeA.png) center no-repeat;
+				}
+				&:active{
+					background: #b7331d url(../img/ie/closeA.png) center no-repeat;
+				}
+			}
+		}
+	}
+}
