@@ -30,14 +30,14 @@
   left: 0;
   z-index: 10;
   width: 100%;
-  min-height: 100px;
+  min-height: 62px;
   max-height: 120px;
   background: #000000 url(../img/top-bg.png);
 }
 #top a {
   display: block;
   width: 200px;
-  line-height: 100px;
+  line-height: 62px;
   text-align: center;
   transition: background 0.3s;
 }
@@ -48,7 +48,7 @@
   background: rgba(255, 255, 255, 0.1);
 }
 #top a img {
-  width: 160px;
+  width: 120px;
   vertical-align: middle;
 }
 #left {
