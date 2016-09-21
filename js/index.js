@@ -1,7 +1,9 @@
 $(function() {
     (function() {
-        var isIcon = !(ccc.getStorage("isIcon") == "true");
-        menuLayout($(".menuChange"), isIcon);
+    	if(ccc.getStorage("isIcon")){
+    		var isIcon = !(ccc.getStorage("isIcon") == "true");
+        	menuLayout($(".menuChange"), isIcon);
+    	}
         $.ajax({
             type: "get",
             url: "./js/AjaxJson.js",
