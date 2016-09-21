@@ -77,7 +77,7 @@
 #main {
   box-sizing: border-box;
   height: 100%;
-  padding: 100px 0 0 200px;
+  padding: 62px 0 0 200px;
 }
 #main .m-c {
   height: 100%;
@@ -101,7 +101,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 650px;
+  width: 660px;
   height: 450px;
   border-radius: 2px;
   margin: -225px 0 0 -325px;
@@ -115,6 +115,13 @@
   transform: scale(1);
   opacity: 1;
 }
+#menu .menu-c .menu-c-t {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
 #menu .menu-c .menu-c-t .menuChange {
   float: left;
   padding: 2px;
@@ -125,7 +132,7 @@
 }
 #menu .menu-c .menu-c-t .menuChange span {
   display: inline-block;
-  padding: 5px 10px;
+  padding: 2px 8px;
   font-weight: 700;
   color: #9A9A9A;
 }
@@ -146,4 +153,90 @@
 }
 #menu .menu-c .menu-c-t .menuClose:active {
   background: #b7331d url(../img/closeA.png) center / 20px no-repeat;
+}
+#menu .menu-c .menu-c-m {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 35px 0 0;
+  /* 这是针对缺省样式 (必须的) */
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+  /* 滑轨两头的监听按钮颜色 */
+  /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+}
+#menu .menu-c .menu-c-m ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+#menu .menu-c .menu-c-m ::-webkit-scrollbar-track {
+  background-image: linear-gradient(180deg, #f3eaea, #dcdada);
+}
+#menu .menu-c .menu-c-m ::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(180deg, #e9f4ff, #fbfbfb, #d6e5fd);
+}
+#menu .menu-c .menu-c-m ::-webkit-scrollbar-button {
+  display: none;
+  background-color: #262626;
+}
+#menu .menu-c .menu-c-m ::-webkit-scrollbar-corner {
+  background-color: black;
+}
+#menu .menu-c .menu-c-m .menu-c-m-l {
+  display: none;
+}
+#menu .menu-c .menu-c-m .menu-c-m-r {
+  height: 100%;
+}
+#menu .menu-c .menu-c-m .menu-c-m-r ul {
+  height: 100%;
+  overflow: auto;
+}
+#menu .menu-c .menu-c-m .menu-c-m-r ul li {
+  display: inline;
+}
+#menu .menu-c .menu-c-m .menu-c-m-r ul li a {
+  float: left;
+  margin: 10px;
+  text-align: center;
+}
+#menu .menu-c .menu-c-m .menu-c-m-r ul li a i {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+#menu .menu-c .menu-c-m .menu-c-m-r ul li a span {
+  display: inline-block;
+  margin: 5px 0 0;
+  color: #555;
+}
+#menu .menu-c .menu-c-m.no-icon .menu-c-m-l {
+  display: block;
+  float: left;
+  overflow: auto;
+  height: 100%;
+  width: 149px;
+  border-right: 1px solid #ccc;
+}
+#menu .menu-c .menu-c-m.no-icon .menu-c-m-l .classify-list .classify-item {
+  display: block;
+  line-height: 50px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  color: #666;
+}
+#menu .menu-c .menu-c-m.no-icon .menu-c-m-l .classify-list .classify-item.active {
+  background: #eee;
+}
+#menu .menu-c .menu-c-m.no-icon .menu-c-m-r ul {
+  margin: 0 0 0 150px;
+}
+#menu .menu-c .menu-c-m.no-icon .menu-c-m-r ul li {
+  box-sizing: border-box;
+  display: none;
+  height: 100%;
+  padding: 10px 0px 10px 10px;
+  overflow: auto;
+}
+#menu .menu-c .menu-c-m.no-icon .menu-c-m-r ul li.active {
+  display: block;
 }

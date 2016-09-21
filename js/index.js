@@ -1,4 +1,9 @@
 $(function() {
+    (function(){
+        var isIcon = !(ccc.getStorage("isIcon") == "true");
+        menuLayout($(".menuChange"),isIcon);
+    })();
+
     // 菜单出现
     function menuShow() {
         $("#menu").show();
@@ -39,17 +44,40 @@ $(function() {
     	}
     });
 
+    function menuLayout(that,isIcon){
+        if(isIcon){//现在状态是icon吗
+            $('span',that).eq(1).addClass('active').end().eq(0).removeClass("active");
+            that.attr("data-icon","false");
+            $(".menu-c-m").addClass("no-icon");
+        }else{
+            that.find("span").eq(0).addClass("active").end().eq(1).removeClass("active");
+            that.attr({"data-icon":"true"});
+            $(".menu-c-m").removeClass("no-icon");
+        }
+    }
     // 切换菜单按钮操作
     $(".menuChange").on("click",function(){
         var that = $(this);
         var isIcon = (that.attr("data-icon") == "true");//现在状态是icon吗
-        if(isIcon){
-            $('span',that).eq(1).addClass('active').end().eq(0).removeClass("active");
-            that.attr("data-icon","false");
-        }else{
-            that.find("span").eq(0).addClass("active").end().eq(1).removeClass("active");
-            that.attr({"data-icon":"true"});
-        }
+        $(".menu-c-m-r li").attr("style","");//清除行内样式 block none
+        menuLayout(that,isIcon);
+        ccc.setStorage("isIcon",!isIcon);//保存切换后的状态;
     });
 
+    // 菜单分类tab切换
+    $(".classify-item").on("click",function(e){
+        e.preventDefault();
+        var that = $(this);
+        var _index = that.index();
+        that.addClass("active").siblings().removeClass("active");
+        $(".menu-c-m-r li").eq(_index).show().siblings().hide();
+    });
+
+    // 菜单 a标签 点击
+    $(".menu-c-m-r a").on("click",function(){
+        var that = $(this);
+        var theUrl = that.attr("data-url");
+        menuHid();
+        $("#ifr").attr("src",theUrl);
+    });
 });

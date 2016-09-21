@@ -43,7 +43,7 @@ html,body{
 	top:0;
 	left:0;
 	z-index: 9;
-	width:200px;
+	width: 200px;
 	height: 100%;
 	padding:100px 0 0 ;
 	// background: #3e3e3e;
@@ -65,7 +65,7 @@ html,body{
 #main{
 	box-sizing: border-box;
 	height:100%;
-	padding:100px 0 0 200px;
+	padding:62px 0 0 200px;
 	.m-c{
 		height:100%;
 	}
@@ -89,7 +89,7 @@ html,body{
 		position:absolute;
 		left:50%;
 		top:50%;
-		width: 650px;
+		width: 660px;
 		height: 450px;
 		border-radius:2px;
 		margin:-225px 0 0 -325px;
@@ -103,6 +103,11 @@ html,body{
 			opacity: 1;
 		}
 		.menu-c-t{
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			border-bottom: 1px solid #ccc;
 			.menuChange{
 				float: left;
 				padding:2px;
@@ -112,7 +117,7 @@ html,body{
 				box-shadow:#C4C4C4 2px -2px 20px inset,#C4C4C4 -2px 2px 20px inset;
 				span{
 					display:inline-block;
-					padding:5px 10px;
+					padding:2px 8px;
 					font-weight:700;
 					color:#9A9A9A;
 				}
@@ -134,6 +139,81 @@ html,body{
 				}
 				&:active{
 					background: #b7331d url(../img/closeA.png) center/20px no-repeat;
+				}
+			}
+		}
+		.menu-c-m{
+			box-sizing:border-box;
+			height:100%;
+			padding:35px 0 0;
+			::-webkit-scrollbar {width: 5px;height:5px;} /* 这是针对缺省样式 (必须的) */
+			::-webkit-scrollbar-track {background-image: linear-gradient(180deg, #f3eaea, #dcdada);} /* 滚动条的滑轨背景颜色 */
+			::-webkit-scrollbar-thumb {background-image: linear-gradient(180deg, #e9f4ff, #fbfbfb, #d6e5fd);} /* 滑块颜色 */
+			::-webkit-scrollbar-button {display:none;background-color: #262626;} /* 滑轨两头的监听按钮颜色 */
+			::-webkit-scrollbar-corner {background-color: black;} /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+			.menu-c-m-l{
+				display:none;
+			}
+			.menu-c-m-r{
+				height:100%;
+				ul{
+					height:100%;
+					overflow:auto;
+					li{
+						display:inline;
+						a{
+							float: left;
+							margin: 10px;
+							text-align: center;
+							i{
+								display:block;
+								width:60px;
+								height: 60px;
+							}
+							span{
+								display:inline-block;
+								margin:5px 0 0;
+								color:#555;
+							}
+						}
+					}
+				}
+			}
+		}
+		.menu-c-m.no-icon{
+			.menu-c-m-l{
+				display:block;
+				float: left;
+				overflow:auto;
+				height:100%;
+				width:149px;
+				border-right: 1px solid #ccc;
+				.classify-list{
+					.classify-item{
+						display:block;
+						line-height:50px;
+						border-bottom:1px solid #ccc;
+						text-align: center;
+						color:#666;
+						&.active{
+							background: #eee;
+						}
+					}
+				}
+			}
+			.menu-c-m-r{
+				ul{
+					margin:0 0 0 150px;
+					li{
+						box-sizing:border-box;
+						display:none;
+						height:100%;
+						padding:10px 0px 10px 10px;
+						overflow:auto;//同时清浮动
+						&.active{
+							display:block;
+						}
+					}
 				}
 			}
 		}
