@@ -1,7 +1,7 @@
 $(function(){
-	$("#ifr").load(function(){
-		console.clear();
-	});
+	// $("#ifr").load(function(){
+		// console.clear();
+	// });
 });
 function isIe8(){
 	return ccc.isXBrowser("msie 8");
