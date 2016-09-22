@@ -102,6 +102,7 @@ $(function() {
     $(".shortcut-list").on("click",".sBtn",function(){
         if(!isEditing){
             var that = $(this);
+            that.addClass("active").parent().siblings().find(".sBtn").removeClass("active");
             var theUrl = that.attr("data-url");
             $("#ifr").attr("src", theUrl);
         }
@@ -193,6 +194,7 @@ $(function() {
                     "data-url": data[i].contain[j].url,
                     "data-icon": icon,
                     "data-name": data[i].contain[j].name,
+                    "data-id":data[i].contain[j].id
                 });
                 tp2.find("span").html(data[i].contain[j].name);
                 tp2.find("i").css("background", "url(img/" + icon + ".png) center/contain no-repeat")
@@ -217,6 +219,9 @@ $(function() {
             if(isLogo){
                 var that = $(this);
                 var theUrl = that.attr("data-url");
+                var id = that.attr("data-id");
+                console.log(id);
+                $("[data-id="+id+"]").addClass("active").parent().siblings().find(".sBtn").removeClass("active");;
                 menuHid();
                 $("#ifr").attr("src", theUrl);
             }else{
