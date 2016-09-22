@@ -77,7 +77,7 @@ $(function() {
     // 创建侧栏
     function sideBuild(data){
         console.log(data);
-        for(var i in data){
+        for(var i = 0 ,len=data.length;i<len;i++){
             sideSingle(data[i]);
         }
     }
@@ -174,7 +174,7 @@ $(function() {
 
     // 建立menulist
     function menuListBuild(data) {
-        for (var i in data) {
+        for (var i = 0 ,len=data.length;i<len;i++) {
             // 生成菜单左侧栏
             var tp1 = $("#tp1").clone().removeAttr("id"); //一定要remove Id ,不然$("#tp1")有可能获取的是新添加的节点
             if (i == 0) {
@@ -187,7 +187,7 @@ $(function() {
             if (i == 0) {
                 li.addClass("active");
             }
-            for (var j in data[i].contain) {
+            for (var j=0;j<data[i].contain.length;j++) {
                 var tp2 = $("#tp2").clone().removeAttr("id");
                 var icon = data[i].contain[j].icon || "default";
                 tp2.attr({
