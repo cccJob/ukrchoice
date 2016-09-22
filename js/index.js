@@ -12,10 +12,10 @@
 */
 $(function() {
     (function() {
-    	if(ccc.getStorage("isIcon")){
-    		var isIcon = !(ccc.getStorage("isIcon") == "true");
-        	menuLayout($(".menuChange"), isIcon);
-    	}
+        if (ccc.getStorage("isIcon")) {
+            var isIcon = !(ccc.getStorage("isIcon") == "true");
+            menuLayout($(".menuChange"), isIcon);
+        }
         $.ajax({
             type: "get",
             url: "./js/AjaxJson.js",
@@ -40,73 +40,81 @@ $(function() {
         });
     })();
 
-    var isLogo = true;// 标记是从logo那里进入菜单吗,false为从侧栏添加按钮进入
-    var isEditing = false;// 标记侧栏是否在编辑中
+    var isLogo = true; // 标记是从logo那里进入菜单吗,false为从侧栏添加按钮进入
+    var isEditing = false; // 标记侧栏是否在编辑中
 
     /*
      *  侧栏
      */
     // 侧栏编辑
-    function sideEditOut(that){
+    function sideEditOut(that) {
         that.removeClass("active");
         $(".shortcut-list").removeClass("move");
     }
-    $(".shortcut-edit").on("click",function(e){
+    $(".shortcut-edit").on("click", function(e) {
         e.preventDefault();
         e.stopPropagation();
 
         var that = $(this);
-        if(!that.hasClass("active")){
+        if (!that.hasClass("active")) {
             that.addClass("active");
             $(".shortcut-list").addClass("move");
             isEditing = true;
-        }else{
+        } else {
             sideEditOut(that);
             isEditing = false;
         }
     });
 
     // 侧栏添加
-    $(".shortcut-add").on("click",function(e){
+    $(".shortcut-add").on("click", function(e) {
         e.preventDefault();
         e.stopPropagation();
-        isLogo=false;
+        isLogo = false;
         menuShow();
     });
 
     // 创建侧栏
-    function sideBuild(data){
+    function sideBuild(data) {
         console.log(data);
-        for(var i = 0 ,len=data.length;i<len;i++){
+        for (var i = 0, len = data.length; i < len; i++) {
             sideSingle(data[i]);
         }
     }
 
     // 侧栏单个
-    function sideSingle(data){
+    function sideSingle(data) {
         var tp = $("#tp3").clone().removeAttr("id");
         var icon = data.icon || "default";
         tp.find("a").attr({
-            "data-url":data.url,
-            "data-icon":icon,
-            "data-name":data.name,
-            "data-id":data.id,
+            "data-url": data.url,
+            "data-icon": icon,
+            "data-name": data.name,
+            "data-id": data.id,
         });
-        tp.find("i").css("background","url(img/"+icon+"W.png) center / contain no-repeat")
+        tp.find("i").css("background", "url(img/" + icon + "W.png) center / contain no-repeat")
         tp.find("span").html(data.name);
         tp.insertBefore(".edit-add");
     }
 
 
     // 侧栏快捷方式点击
-    $(".shortcut-list").on("click",".sBtn",function(){
-        if(!isEditing){
+    $(".shortcut-list").on("click", ".sBtn", function() {
+        if (!isEditing) {
             var that = $(this);
             that.addClass("active").parent().siblings().find(".sBtn").removeClass("active");
             var theUrl = that.attr("data-url");
             $("#ifr").attr("src", theUrl);
         }
     });
+
+    // 侧栏删除
+    $(".shortcut-list").on("click", ".shortcutDel", function() {
+        if (isEditing) {
+            console.log($(this).index(".shortcutDel"));
+        }
+    });
+
 
 
 
@@ -174,7 +182,7 @@ $(function() {
 
     // 建立menulist
     function menuListBuild(data) {
-        for (var i = 0 ,len=data.length;i<len;i++) {
+        for (var i = 0, len = data.length; i < len; i++) {
             // 生成菜单左侧栏
             var tp1 = $("#tp1").clone().removeAttr("id"); //一定要remove Id ,不然$("#tp1")有可能获取的是新添加的节点
             if (i == 0) {
@@ -187,14 +195,14 @@ $(function() {
             if (i == 0) {
                 li.addClass("active");
             }
-            for (var j=0;j<data[i].contain.length;j++) {
+            for (var j = 0; j < data[i].contain.length; j++) {
                 var tp2 = $("#tp2").clone().removeAttr("id");
                 var icon = data[i].contain[j].icon || "default";
                 tp2.attr({
                     "data-url": data[i].contain[j].url,
                     "data-icon": icon,
                     "data-name": data[i].contain[j].name,
-                    "data-id":data[i].contain[j].id
+                    "data-id": data[i].contain[j].id
                 });
                 tp2.find("span").html(data[i].contain[j].name);
                 tp2.find("i").css("background", "url(img/" + icon + ".png) center/contain no-repeat")
@@ -216,15 +224,15 @@ $(function() {
 
         // 菜单 a标签 点击
         $(".menu-c-m-r a").on("click", function() {
-            if(isLogo){
+            if (isLogo) {
                 var that = $(this);
                 var theUrl = that.attr("data-url");
                 var id = that.attr("data-id");
                 console.log(id);
-                $("[data-id="+id+"]").addClass("active").parent().siblings().find(".sBtn").removeClass("active");;
+                $("[data-id=" + id + "]").addClass("active").parent().siblings().find(".sBtn").removeClass("active");;
                 menuHid();
                 $("#ifr").attr("src", theUrl);
-            }else{
+            } else {
 
             }
         });
@@ -245,9 +253,9 @@ $(function() {
         if (e.keyCode != 123 && e.keyCode != 116) { //f12 f5
             e.preventDefault();
             if (e.keyCode == 27) { //Esc
-                if($("#menu").hasClass("active")){//菜单
+                if ($("#menu").hasClass("active")) { //菜单
                     menuHid();
-                }else if($(".move").size()>0){//侧栏编辑
+                } else if ($(".move").size() > 0) { //侧栏编辑
                     sideEditOut($(".shortcut-edit"));
                 }
             }
