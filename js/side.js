@@ -1,5 +1,11 @@
 [
     {
+        "url": "about:blank",
+        "icon": "default",
+        "name": "空白",
+        "id": "0"
+    },
+    {
         "url": "http://www.baidu.com",
         "icon": "baidu",
         "name": "百度",
