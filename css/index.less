@@ -45,12 +45,117 @@ html,body{
 	z-index: 9;
 	width: 200px;
 	height: 100%;
-	padding:100px 0 0 ;
+	padding:62px 0 0 ;
 	// background: #3e3e3e;
 	background: #2d2d2d;
 	.l-c{
 		height:100%;
 		overflow: auto;
+		.shortcut-list{
+			.shortcut-item{
+				position:relative;
+				height:55px;//可以不设置的,是为了添加新的时候的动画
+				border-bottom:1px solid #232323;
+				transition:all 0.2s;
+				overflow:hidden;//为了动画
+				// 侧栏按钮主体
+				a{
+					position:relative;
+					z-index:10;
+					display:block;
+					line-height:35px;
+					padding:10px 0 10px 20px;
+					background: #2d2d2d;
+					transition:all 0.3s;
+					&:hover{
+						background: #3e3e3e;
+					}
+					&.active{
+						background: #4c4c4c;
+					}
+					i{
+						float: left;
+						width:35px;
+						height:35px;
+					}
+					span{
+						display:block;
+						margin:0 5px 0 65px;
+						color: #ddd;
+						font-size: 16px;
+					}
+				}
+				// 其他按钮
+				button{
+					position:absolute;
+					z-index:9;
+					padding:0;
+					border: none;
+					cursor:pointer;
+				}
+				.shortcutDel{
+					top:13px;
+					right:25px;
+					height:29px;
+					width:25px;
+					background:#820c0c url(../img/del.png) center/20px no-repeat;
+					// &:focus{
+					// 	outline: none;
+					// }
+				}
+				.shortcutUp{
+					top:13px;
+					right:0px;
+					width:25px;
+					height:13px;
+					background: #03568e url(../img/up.png) center/10px no-repeat;
+				}
+				.shortcutDown{
+					bottom:13px;
+					right:0px;
+					width:25px;
+					height:13px;
+					background: #03568e url(../img/down.png) center/10px no-repeat;
+				}
+			}
+			.edit-add{
+				padding:10px 10%;
+				border-bottom:1px solid #232323;
+				button{
+					float: left;
+					width:30%;
+					height:45px;
+					padding:0;
+					border:none;
+					margin:0 10%;
+					cursor:pointer;
+					&.shortcut-add{
+						background:#353535 url(../img/add.png) center/30px no-repeat;
+					}
+					&.shortcut-edit{
+						background:#353535 url(../img/edit.png) center/35px no-repeat;
+						&.active{
+							background-color: #154412;
+						}
+					}
+					&:focus{
+						outline:none;
+					}
+					&:active{
+						opacity:0.7;
+					}
+				}
+			}
+		}
+		.shortcut-list.move{
+			a{
+				transform:translate3d(-50px,0,0);
+				pointer-events:none;
+				&:hover,&.active{
+					background: #2d2d2d;
+				}
+			}
+		}
 	}
 	// 隐藏按钮
 	.hid-btn{
@@ -62,6 +167,27 @@ html,body{
 		background: url(../img/yincang.png);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #main{
 	box-sizing: border-box;
 	height:100%;
@@ -70,6 +196,39 @@ html,body{
 		height:100%;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 菜单
 #menu{
 	display:none;

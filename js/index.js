@@ -1,3 +1,15 @@
+/*
+
+   :::                                :::
+ :::::::                             :::::
+:::::::::                          ::::::::
+:::::::::::::::::::::::::::::::::::::::::::
+::::    :::    ::::::::::::::::   :::  ::::
+:::    Smart    :::::cool::::    Crazy  :::
+:::::   :::    :::::::::::::::    :::   :::
+:::::::::::::::::::::::::::::::::::::::::::
+
+*/
 $(function() {
     (function() {
     	if(ccc.getStorage("isIcon")){
@@ -15,7 +27,106 @@ $(function() {
                 console.log(e);
             }
         });
+        $.ajax({
+            type: "get",
+            url: "./js/side.js",
+            dataType: "json",
+            success: function(data) {
+                sideBuild(data);
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
     })();
+
+    var isLogo = true;// 标记是从logo那里进入菜单吗,false为从侧栏添加按钮进入
+    var isEditing = false;// 标记侧栏是否在编辑中
+
+    /*
+     *  侧栏
+     */
+    // 侧栏编辑
+    function sideEditOut(that){
+        that.removeClass("active");
+        $(".shortcut-list").removeClass("move");
+    }
+    $(".shortcut-edit").on("click",function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        var that = $(this);
+        if(!that.hasClass("active")){
+            that.addClass("active");
+            $(".shortcut-list").addClass("move");
+            isEditing = true;
+        }else{
+            sideEditOut(that);
+            isEditing = false;
+        }
+    });
+
+    // 侧栏添加
+    $(".shortcut-add").on("click",function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        isLogo=false;
+        menuShow();
+    });
+
+    // 创建侧栏
+    function sideBuild(data){
+        console.log(data);
+        for(var i in data){
+            sideSingle(data[i]);
+        }
+    }
+
+    // 侧栏单个
+    function sideSingle(data){
+        var tp = $("#tp3").clone().removeAttr("id");
+        var icon = data.icon || "default";
+        tp.find("a").attr({
+            "data-url":data.url,
+            "data-icon":icon,
+            "data-name":data.name,
+            "data-id":data.id,
+        });
+        tp.find("i").css("background","url(img/"+icon+"W.png) center / contain no-repeat")
+        tp.find("span").html(data.name);
+        tp.insertBefore(".edit-add");
+    }
+
+
+    // 侧栏快捷方式点击
+    $(".shortcut-list").on("click",".sBtn",function(){
+        if(!isEditing){
+            var that = $(this);
+            var theUrl = that.attr("data-url");
+            $("#ifr").attr("src", theUrl);
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // 菜单出现
     function menuShow() {
@@ -35,26 +146,16 @@ $(function() {
             $("#menu").hide();
         }
     }
+
     // logo按钮操作
     $("#menuBtn").on("click", function() {
+        isLogo = true;
         menuShow();
     });
+
     // 菜单关闭按钮操作
     $(".menuClose").on("click", function() {
         menuHid();
-    });
-    // 键盘按键操作
-    $(window).on("keydown", function(e) {
-        console.log(e.keyCode);
-        if (e.keyCode != 123 && e.keyCode != 116) { //f12 f5
-            e.preventDefault();
-            if (e.keyCode == 27 && $("#menu").hasClass("active")) { //Esc
-                menuHid();
-            }
-            if (e.ctrlKey && e.keyCode == 79) {
-                menuShow();
-            }
-        }
     });
 
     // 菜单展示方式
@@ -100,8 +201,6 @@ $(function() {
             li.appendTo(".menu-c-m-r ul");
         }
 
-
-
         // 生成出来的节点绑定事件可以写在生成后的下面,若要写在外面请用事件委托
 
         // 菜单分类tab切换
@@ -115,10 +214,14 @@ $(function() {
 
         // 菜单 a标签 点击
         $(".menu-c-m-r a").on("click", function() {
-            var that = $(this);
-            var theUrl = that.attr("data-url");
-            menuHid();
-            $("#ifr").attr("src", theUrl);
+            if(isLogo){
+                var that = $(this);
+                var theUrl = that.attr("data-url");
+                menuHid();
+                $("#ifr").attr("src", theUrl);
+            }else{
+
+            }
         });
     }
 
@@ -131,5 +234,22 @@ $(function() {
         ccc.setStorage("isIcon", !isIcon); //保存切换后的状态;
     });
 
+    // 键盘按键操作
+    $(window).on("keydown", function(e) {
+        console.log(e.keyCode);
+        if (e.keyCode != 123 && e.keyCode != 116) { //f12 f5
+            e.preventDefault();
+            if (e.keyCode == 27) { //Esc
+                if($("#menu").hasClass("active")){//菜单
+                    menuHid();
+                }else if($(".move").size()>0){//侧栏编辑
+                    sideEditOut($(".shortcut-edit"));
+                }
+            }
+            if (e.ctrlKey && e.keyCode == 79) {
+                menuShow();
+            }
+        }
+    });
 
 });
