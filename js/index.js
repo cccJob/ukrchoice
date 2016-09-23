@@ -187,7 +187,7 @@ $(function() {
     });
 
     $(".hid-btn").on("click",function(){
-        $("#left,#main,#top").toggleClass("hide");
+        $("#left,#main").toggleClass("hide");
     });
 
 
@@ -304,7 +304,8 @@ $(function() {
             var icon = that.attr("data-icon");
             if (isLogo) {
                 // 让侧栏对应的快捷方式高亮
-                $(".l-c [data-id=" + id + "]").addClass("active").parent().siblings().find(".sBtn").removeClass("active");;
+                $(".sBtn").removeClass("active");//不管找不找到,都要取消高亮,因为快捷方式里面没有的这项的话,应该全部不高亮
+                $(".l-c [data-id=" + id + "]").addClass("active");
                 menuHid();
                 $("#ifr").attr("src", theUrl);
             } else {
@@ -350,13 +351,11 @@ $(function() {
 
 
 
-/*
- *
- * 全局操作
- *
- */
-
-
+    /*
+     *
+     * 全局操作
+     *
+     */
 
 
     // 键盘按键操作

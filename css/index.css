@@ -300,7 +300,7 @@
   transition: padding .3s;
 }
 #main.hide {
-  padding: 0;
+  padding: 62px 0 0 0;
 }
 #main .m-c {
   height: 100%;
