@@ -170,7 +170,9 @@ $(function() {
         }
     });
 
-
+    $(".hid-btn").on("click",function(){
+        $("#left,#main,#top").toggleClass("hide");
+    });
 
 
 

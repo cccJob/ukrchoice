@@ -24,33 +24,132 @@
 #wrap ::-webkit-scrollbar-corner {
   background-color: black;
 }
+/*
+ *顶部
+ */
 #top {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
   width: 100%;
-  min-height: 62px;
   max-height: 120px;
   background: #000000 url(../img/top-bg.png);
+  transition: transform 0.3s;
 }
-#top a {
-  display: block;
+#top #menuBtn {
+  float: left;
   width: 200px;
   line-height: 62px;
   text-align: center;
   transition: background 0.3s;
 }
-#top a:hover {
+#top #menuBtn:hover {
   background: rgba(45, 45, 45, 0.7);
 }
-#top a:active {
+#top #menuBtn:active {
   background: rgba(255, 255, 255, 0.1);
 }
-#top a img {
+#top #menuBtn img {
   width: 120px;
   vertical-align: middle;
 }
+#top .top-btn-list {
+  float: right;
+  margin: 0 30px 0 0;
+}
+#top .top-btn-list .top-btn-item {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin: 11px 0 0 0;
+}
+#top .top-btn-list .top-btn-item.msg {
+  background: url(../img/msg.png) center / 32px no-repeat;
+}
+#top .top-btn-list .top-btn-item.msg.active {
+  background: url(../img/msgA.png) center / 32px no-repeat;
+}
+#top.hide {
+  transform: translate3d(0, -100%, 0);
+}
+/*
+ *右边下拉
+ */
+#right {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 300px;
+  padding: 61px 0 0 0;
+  border: 1px solid #ccc;
+  word-break: break-all;
+  transition: transform cubic-bezier(0.22, 0.61, 0.36, 1) 0.6s;
+  transform: translate3d(0, -100%, 0);
+  box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.2), 2px 2px 8px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  /* 这是针对缺省样式 (必须的) */
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+  /* 滑轨两头的监听按钮颜色 */
+  /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+}
+#right ::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+#right ::-webkit-scrollbar-track {
+  background-color: #262626;
+}
+#right ::-webkit-scrollbar-thumb {
+  background-color: #0191D6;
+}
+#right ::-webkit-scrollbar-button {
+  display: none;
+  background-color: #262626;
+}
+#right ::-webkit-scrollbar-corner {
+  background-color: black;
+}
+#right.active {
+  transform: translate3d(0, 0, 0);
+}
+#right .r-c {
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+}
+#right .r-c .msg-list .msg-item {
+  position: relative;
+  padding: 0 12px 0 12px;
+}
+#right .r-c .msg-list .msg-item:before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 0px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent #ccc;
+}
+#right .r-c .msg-list .msg-item:after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 0px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #ccc transparent transparent ;
+}
+#right .r-c .msg-list .msg-item div {
+  padding: 10px 5px 10px 5px;
+  border-top: 1px dashed #ccc;
+}
+/*
+ *左边侧栏
+ */
 #left {
   box-sizing: border-box;
   position: absolute;
@@ -59,8 +158,9 @@
   z-index: 9;
   width: 200px;
   height: 100%;
-  padding: 62px 0 0 ;
+  padding: 62px 0 0;
   background: #2d2d2d;
+  transition: transform .3s;
 }
 #left .l-c {
   height: 100%;
@@ -168,17 +268,40 @@
   top: 50%;
   right: -12px;
   height: 65px;
+  line-height: 65px;
   width: 12px;
   background: url(../img/yincang.png);
+  text-align: center;
 }
+#left .hid-btn img {
+  width: 70%;
+  vertical-align: middle;
+  transition: transform .3s;
+}
+#left.hide {
+  transform: translate3d(-100%, 0, 0);
+}
+#left.hide .hid-btn img {
+  transform: rotate3d(0, 1, 0, 180deg);
+}
+/*
+ *主体
+ */
 #main {
   box-sizing: border-box;
   height: 100%;
   padding: 62px 0 0 200px;
+  transition: padding .3s;
+}
+#main.hide {
+  padding: 0;
 }
 #main .m-c {
   height: 100%;
 }
+/*
+ *菜单
+ */
 #menu {
   display: none;
   position: absolute;
@@ -335,5 +458,20 @@
   overflow: auto;
 }
 #menu .menu-c .menu-c-m.no-icon .menu-c-m-r ul li.active {
+  display: block;
+}
+/*
+ *蒙层
+ */
+#mask {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+#mask.active {
   display: block;
 }

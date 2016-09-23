@@ -1,380 +1,514 @@
-html,body{
+html,
+body {}
+
+#wrap {
+    position: relative;
+    min-width: 1007px;
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    /* 这是针对缺省样式 (必须的) */
+    ::-webkit-scrollbar-track {
+        background-color: #262626;
+    }
+    /* 滚动条的滑轨背景颜色 */
+    ::-webkit-scrollbar-thumb {
+        background-color: #0191D6;
+    }
+    /* 滑块颜色 */
+    ::-webkit-scrollbar-button {
+        display: none;
+        background-color: #262626;
+    }
+    /* 滑轨两头的监听按钮颜色 */
+    ::-webkit-scrollbar-corner {
+        background-color: black;
+    }
+    /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
 }
-#wrap{
-	position:relative;
-	min-width: 1007px;
-	::-webkit-scrollbar {width: 10px;height:10px;} /* 这是针对缺省样式 (必须的) */
-	::-webkit-scrollbar-track {background-color: #262626;} /* 滚动条的滑轨背景颜色 */
-	::-webkit-scrollbar-thumb {background-color: #0191D6;} /* 滑块颜色 */
-	::-webkit-scrollbar-button {display:none;background-color: #262626;} /* 滑轨两头的监听按钮颜色 */
-	::-webkit-scrollbar-corner {background-color: black;} /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+
+/*
+ *顶部
+ */
+#top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    // min-height: 62px;
+    max-height: 120px;
+    background: #000 url(../img/top-bg.png);
+    transition :transform 0.3s;
+    #menuBtn {
+        float: left;
+        width: 200px;
+        line-height: 62px;
+        text-align: center;
+        transition: background 0.3s;
+        &:hover {
+            background: rgba(45, 45, 45, 0.7);
+        }
+        &:active {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        img {
+            width: 120px;
+            vertical-align: middle;
+        }
+    }
+    .top-btn-list{
+        float: right;
+        margin: 0 30px 0 0;
+        .top-btn-item{
+            float: left;
+            width:40px;
+            height:40px;
+            margin:11px 0 0 0;
+            &.msg{
+                background: url(../img/msg.png) center/32px no-repeat;
+                &.active{
+                    background: url(../img/msgA.png) center/32px no-repeat;
+                }
+            }
+        }
+    }
 }
-// 顶部
-#top{
-	position: absolute;
-	top:0;
-	left:0;
-	z-index: 10;
-	width: 100%;
-	min-height: 62px;
-	max-height: 120px;
-	background:#000 url(../img/top-bg.png);
-	a{
-		display:block;
-		width: 200px;
-		line-height: 62px;
-		text-align: center;
-		transition:background 0.3s;
-		&:hover{
-			background: rgba(45,45,45,0.7);
-		}
-		&:active{
-			background: rgba(255,255,255,0.1);
-		}
-		img{
-			width:120px;
-			vertical-align: middle;
-		}
-	}
-}
-#left{
-	box-sizing:border-box;
-	position:absolute;
-	top:0;
-	left:0;
-	z-index: 9;
-	width: 200px;
-	height: 100%;
-	padding:62px 0 0 ;
-	// background: #3e3e3e;
-	background: #2d2d2d;
-	.l-c{
-		height:100%;
-		overflow: auto;
-		.shortcut-list{
-			.shortcut-item{
-				position:relative;
-				height:55px;//可以不设置的,是为了添加新的时候的动画
-				border-bottom:1px solid #232323;
-				overflow:hidden;//为了动画
-				transition : transform .2s;
-				// 侧栏按钮主体
-				a{
-					position:relative;
-					z-index:10;
-					display:block;
-					line-height:35px;
-					padding:10px 0 10px 20px;
-					background: #2d2d2d;
-					transition:all 0.3s;
-					&:hover{
-						background: #3e3e3e;
-					}
-					&.active{
-						background: #4c4c4c;
-					}
-					i{
-						float: left;
-						width:35px;
-						height:35px;
-					}
-					span{
-						display:block;
-						margin:0 5px 0 65px;
-						color: #ddd;
-						font-size: 16px;
-					}
-				}
-				// 其他按钮
-				button{
-					position:absolute;
-					z-index:9;
-					padding:0;
-					border: none;
-					cursor:pointer;
-				}
-				.shortcutDel{
-					top:13px;
-					right:25px;
-					height:29px;
-					width:25px;
-					background:#820c0c url(../img/del.png) center/20px no-repeat;
-					// &:focus{
-					// 	outline: none;
-					// }
-				}
-				.shortcutUp{
-					top:13px;
-					right:0px;
-					width:25px;
-					height:13px;
-					background: #03568e url(../img/up.png) center/10px no-repeat;
-				}
-				.shortcutDown{
-					bottom:13px;
-					right:0px;
-					width:25px;
-					height:13px;
-					background: #03568e url(../img/down.png) center/10px no-repeat;
-				}
-			}
-			.edit-add{
-				padding:10px 10%;
-				border-bottom:1px solid #232323;
-				button{
-					float: left;
-					width:30%;
-					height:45px;
-					padding:0;
-					border:none;
-					margin:0 10%;
-					cursor:pointer;
-					&.shortcut-add{
-						background:#353535 url(../img/add.png) center/30px no-repeat;
-					}
-					&.shortcut-edit{
-						background:#353535 url(../img/edit.png) center/35px no-repeat;
-						&.active{
-							background-color: #154412;
-						}
-					}
-					&:focus{
-						outline:none;
-					}
-					&:active{
-						opacity:0.7;
-					}
-				}
-			}
-		}
-		.shortcut-list.move{
-			a{
-				transform:translate3d(-50px,0,0);
-				pointer-events:none;
-				&:hover,&.active{
-					background: #2d2d2d;
-				}
-			}
-		}
-	}
-	// 隐藏按钮
-	.hid-btn{
-		position:absolute;
-		top:50%;
-		right:-12px;
-		height: 65px;
-		width: 12px;
-		background: url(../img/yincang.png);
-	}
+#top.hide{
+	transform :translate3d(0,-100%,0);
 }
 
 
+/*
+ *右边下拉
+ */
+#right{
+    position:absolute;
+    top:0;
+    right:10px;
+    box-sizing:border-box;
+    height:100%;
+    width:300px;
+    padding:61px 0 0 0;//因为有个border-top 1px
+    border:1px solid #ccc;
+    word-break:break-all;
+    transition : transform cubic-bezier(0.22, 0.61, 0.36, 1) 0.6s;
+    transform :translate3d(0,-100%,0);
+    box-shadow : -2px 2px 8px rgba(0,0,0,0.2),2px 2px 8px rgba(0,0,0,0.2);
+    background: #fff;
 
+    ::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+    }
+    /* 这是针对缺省样式 (必须的) */
+    ::-webkit-scrollbar-track {
+        background-color: #262626;
+    }
+    /* 滚动条的滑轨背景颜色 */
+    ::-webkit-scrollbar-thumb {
+        background-color: #0191D6;
+    }
+    /* 滑块颜色 */
+    ::-webkit-scrollbar-button {
+        display: none;
+        background-color: #262626;
+    }
+    /* 滑轨两头的监听按钮颜色 */
+    ::-webkit-scrollbar-corner {
+        background-color: black;
+    }
+    /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+    &.active{
+        transform:translate3d(0,0,0);
+    }
+    .r-c{
+        box-sizing:border-box;
+        // padding:5px 0;
+        height:100%;
+        overflow:auto;
+        .msg-list{
+            // padding:0 0 0 15px;
+            .msg-item{
+                position:relative;
+                padding:0 12px 0 12px;
+                // border-left: 1px solid #ccc;
+                &:before{
+                    content:"";
+                    position:absolute;
+                    top: -6px;
+                    left:0px;
+                    border-width: 6px;
+                    border-style: solid;
+                    border-color: transparent transparent transparent #ccc;
+                }
+                &:after{
+                    content:"";
+                    position:absolute;
+                    top: -6px;
+                    right:0px;
+                    border-width: 6px;
+                    border-style: solid;
+                    border-color: transparent #ccc transparent transparent ;
+                }
+                div{
+                    padding: 10px 5px 10px 5px;
+                    border-top :1px dashed #ccc;
+                }
+            }
+        }
+    }
+}
+#right.short{//这个只是用于测试
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#main{
-	box-sizing: border-box;
-	height:100%;
-	padding:62px 0 0 200px;
-	.m-c{
-		height:100%;
-	}
 }
 
+/*
+ *左边侧栏
+ */
+#left {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 200px;
+    height: 100%;
+    padding: 62px 0 0;
+    // background: #3e3e3e;
+    background: #2d2d2d;
+    transition: transform .3s;
+    .l-c {
+        height: 100%;
+        overflow: auto;
+        .shortcut-list {
+            .shortcut-item {
+                position: relative;
+                height: 55px; //可以不设置的,是为了添加新的时候的动画
+                border-bottom: 1px solid #232323;
+                overflow: hidden; //为了动画
+                transition: transform .2s;
+                // 侧栏按钮主体
+                a {
+                    position: relative;
+                    z-index: 10;
+                    display: block;
+                    line-height: 35px;
+                    padding: 10px 0 10px 20px;
+                    background: #2d2d2d;
+                    transition: all 0.3s;
+                    &:hover {
+                        background: #3e3e3e;
+                    }
+                    &.active {
+                        background: #4c4c4c;
+                    }
+                    i {
+                        float: left;
+                        width: 35px;
+                        height: 35px;
+                    }
+                    span {
+                        display: block;
+                        margin: 0 5px 0 65px;
+                        color: #ddd;
+                        font-size: 16px;
+                    }
+                }
+                // 其他按钮
+                button {
+                    position: absolute;
+                    z-index: 9;
+                    padding: 0;
+                    border: none;
+                    cursor: pointer;
+                }
+                .shortcutDel {
+                    top: 13px;
+                    right: 25px;
+                    height: 29px;
+                    width: 25px;
+                    background: #820c0c url(../img/del.png) center/20px no-repeat;
+                    // &:focus{
+                    // 	outline: none;
+                    // }
+                }
+                .shortcutUp {
+                    top: 13px;
+                    right: 0px;
+                    width: 25px;
+                    height: 13px;
+                    background: #03568e url(../img/up.png) center/10px no-repeat;
+                }
+                .shortcutDown {
+                    bottom: 13px;
+                    right: 0px;
+                    width: 25px;
+                    height: 13px;
+                    background: #03568e url(../img/down.png) center/10px no-repeat;
+                }
+            }
+            .edit-add {
+                padding: 10px 10%;
+                border-bottom: 1px solid #232323;
+                button {
+                    float: left;
+                    width: 30%;
+                    height: 45px;
+                    padding: 0;
+                    border: none;
+                    margin: 0 10%;
+                    cursor: pointer;
+                    &.shortcut-add {
+                        background: #353535 url(../img/add.png) center/30px no-repeat;
+                    }
+                    &.shortcut-edit {
+                        background: #353535 url(../img/edit.png) center/35px no-repeat;
+                        &.active {
+                            background-color: #154412;
+                        }
+                    }
+                    &:focus {
+                        outline: none;
+                    }
+                    &:active {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+        .shortcut-list.move {
+            a {
+                transform: translate3d(-50px, 0, 0);
+                pointer-events: none;
+                &:hover,
+                &.active {
+                    background: #2d2d2d;
+                }
+            }
+        }
+    }
+    // 隐藏按钮
+    .hid-btn {
+        position: absolute;
+        top: 50%;
+        right: -12px;
+        height: 65px;
+        line-height: 65px;
+        width: 12px;
+        background: url(../img/yincang.png);
+        text-align: center;
+        img {
+            width: 70%;
+            vertical-align: middle;
+            transition: transform .3s;
+        }
+    }
+}
+#left.hide {
+    transform: translate3d(-100%, 0, 0);
+    .hid-btn img {
+        transform: rotate3d(0, 1, 0, 180deg);
+    }
+}
 
+/*
+ *主体
+ */
+#main {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 62px 0 0 200px;
+    transition : padding .3s;
+    &.hide{
+    	padding:0;
+    }
+    .m-c {
+        height: 100%;
+    }
+}
 
+/*
+ *菜单
+ */
+#menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.0);
+    transition: background 0.3s;
+    &.active {
+        display: block;
+        background: rgba(0, 0, 0, 0.3);
+    }
+    .menu-c {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 660px;
+        height: 450px;
+        border-radius: 2px;
+        margin: -225px 0 0 -325px;
+        background: #fff;
+        box-shadow: 4px 4px 3px rgba(0, 0, 0, .3);
+        transform: scale(0.6);
+        opacity: 0.3;
+        transition: all cubic-bezier(0.12, 1.06, 1, 1) 0.3s;
+        &.active {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .menu-c-t {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+            .menuChange {
+                float: left;
+                padding: 2px;
+                border-radius: 4px;
+                margin: 5px;
+                background: #cfcfcf;
+                box-shadow: #C4C4C4 2px -2px 20px inset, #C4C4C4 -2px 2px 20px inset;
+                span {
+                    display: inline-block;
+                    padding: 2px 8px;
+                    font-weight: 700;
+                    color: #9A9A9A;
+                }
+                span.active {
+                    color: #717679;
+                    border-radius: 3px;
+                    background: linear-gradient(180deg, #E7E7E7, #E0E0E0, #D9D9D9);
+                }
+            }
+            .menuClose {
+                float: right;
+                width: 20px;
+                height: 20px;
+                padding: 5px;
+                background: url(../img/close.png) center/20px no-repeat;
+                &:hover {
+                    background: #d44027 url(../img/closeA.png) center/20px no-repeat;
+                }
+                &:active {
+                    background: #b7331d url(../img/closeA.png) center/20px no-repeat;
+                }
+            }
+        }
+        .menu-c-m {
+            box-sizing: border-box;
+            height: 100%;
+            padding: 35px 0 0;
+            ::-webkit-scrollbar {
+                width: 5px;
+                height: 5px;
+            }
+            /* 这是针对缺省样式 (必须的) */
+            ::-webkit-scrollbar-track {
+                background-image: linear-gradient(180deg, #f3eaea, #dcdada);
+            }
+            /* 滚动条的滑轨背景颜色 */
+            ::-webkit-scrollbar-thumb {
+                background-image: linear-gradient(180deg, #e9f4ff, #fbfbfb, #d6e5fd);
+            }
+            /* 滑块颜色 */
+            ::-webkit-scrollbar-button {
+                display: none;
+                background-color: #262626;
+            }
+            /* 滑轨两头的监听按钮颜色 */
+            ::-webkit-scrollbar-corner {
+                background-color: black;
+            }
+            /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+            .menu-c-m-l {
+                display: none;
+            }
+            .menu-c-m-r {
+                height: 100%;
+                ul {
+                    height: 100%;
+                    overflow: auto;
+                    li {
+                        display: inline;
+                        a {
+                            float: left;
+                            margin: 10px;
+                            text-align: center;
+                            i {
+                                display: block;
+                                width: 60px;
+                                height: 60px;
+                            }
+                            span {
+                                display: inline-block;
+                                margin: 5px 0 0;
+                                color: #555;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .menu-c-m.no-icon {
+            .menu-c-m-l {
+                display: block;
+                float: left;
+                overflow: auto;
+                height: 100%;
+                width: 149px;
+                border-right: 1px solid #ccc;
+                .classify-list {
+                    .classify-item {
+                        display: block;
+                        line-height: 50px;
+                        border-bottom: 1px solid #ccc;
+                        text-align: center;
+                        color: #666;
+                        &.active {
+                            background: #eee;
+                        }
+                    }
+                }
+            }
+            .menu-c-m-r {
+                ul {
+                    margin: 0 0 0 150px;
+                    li {
+                        box-sizing: border-box;
+                        display: none;
+                        height: 100%;
+                        padding: 10px 0px 10px 10px;
+                        overflow: auto; //同时清浮动
+                        &.active {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 菜单
-#menu{
-	display:none;
-	position:absolute;
-	top:0;
-	left:0;
-	z-index:100;
-	width:100%;
-	height:100%;
-	background: rgba(0,0,0,0.0);
-	transition: background 0.3s;
-	&.active{
-		display:block;
-		background: rgba(0,0,0,0.3);
-	}
-	.menu-c{
-		position:absolute;
-		left:50%;
-		top:50%;
-		width: 660px;
-		height: 450px;
-		border-radius:2px;
-		margin:-225px 0 0 -325px;
-		background: #fff;
-		box-shadow: 4px 4px 3px rgba(0,0,0,.3);
-		transform:scale(0.6);
-		opacity: 0.3;
-		transition: all cubic-bezier(0.12, 1.06, 1, 1) 0.3s;
-		&.active{
-			transform:scale(1);
-			opacity: 1;
-		}
-		.menu-c-t{
-			position:absolute;
-			top:0;
-			left:0;
-			width:100%;
-			border-bottom: 1px solid #ccc;
-			.menuChange{
-				float: left;
-				padding:2px;
-				border-radius:4px;
-				margin:5px;
-				background: #cfcfcf;
-				box-shadow:#C4C4C4 2px -2px 20px inset,#C4C4C4 -2px 2px 20px inset;
-				span{
-					display:inline-block;
-					padding:2px 8px;
-					font-weight:700;
-					color:#9A9A9A;
-				}
-				span.active{
-					color:#717679;
-					border-radius:3px;
-					background: linear-gradient(180deg, #E7E7E7,#E0E0E0,#D9D9D9);
-				}
-
-			}
-			.menuClose{
-				float: right;
-				width: 20px;
-				height: 20px;
-				padding:5px;
-				background: url(../img/close.png) center/20px no-repeat;
-				&:hover{
-					background: #d44027 url(../img/closeA.png) center/20px no-repeat;
-				}
-				&:active{
-					background: #b7331d url(../img/closeA.png) center/20px no-repeat;
-				}
-			}
-		}
-		.menu-c-m{
-			box-sizing:border-box;
-			height:100%;
-			padding:35px 0 0;
-			::-webkit-scrollbar {width: 5px;height:5px;} /* 这是针对缺省样式 (必须的) */
-			::-webkit-scrollbar-track {background-image: linear-gradient(180deg, #f3eaea, #dcdada);} /* 滚动条的滑轨背景颜色 */
-			::-webkit-scrollbar-thumb {background-image: linear-gradient(180deg, #e9f4ff, #fbfbfb, #d6e5fd);} /* 滑块颜色 */
-			::-webkit-scrollbar-button {display:none;background-color: #262626;} /* 滑轨两头的监听按钮颜色 */
-			::-webkit-scrollbar-corner {background-color: black;} /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
-			.menu-c-m-l{
-				display:none;
-			}
-			.menu-c-m-r{
-				height:100%;
-				ul{
-					height:100%;
-					overflow:auto;
-					li{
-						display:inline;
-						a{
-							float: left;
-							margin: 10px;
-							text-align: center;
-							i{
-								display:block;
-								width:60px;
-								height: 60px;
-							}
-							span{
-								display:inline-block;
-								margin:5px 0 0;
-								color:#555;
-							}
-						}
-					}
-				}
-			}
-		}
-		.menu-c-m.no-icon{
-			.menu-c-m-l{
-				display:block;
-				float: left;
-				overflow:auto;
-				height:100%;
-				width:149px;
-				border-right: 1px solid #ccc;
-				.classify-list{
-					.classify-item{
-						display:block;
-						line-height:50px;
-						border-bottom:1px solid #ccc;
-						text-align: center;
-						color:#666;
-						&.active{
-							background: #eee;
-						}
-					}
-				}
-			}
-			.menu-c-m-r{
-				ul{
-					margin:0 0 0 150px;
-					li{
-						box-sizing:border-box;
-						display:none;
-						height:100%;
-						padding:10px 0px 10px 10px;
-						overflow:auto;//同时清浮动
-						&.active{
-							display:block;
-						}
-					}
-				}
-			}
-		}
-	}
+/*
+ *蒙层
+ */
+#mask{
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:100;
+    width:100%;
+    height:100%;
+    &.active{
+        display:block;
+    }
 }
