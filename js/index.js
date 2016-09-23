@@ -36,17 +36,28 @@ $(function() {
                 console.log(e);
             }
         });
-        $.ajax({
-            type: "get",
-            url: "./js/side.js",
-            dataType: "json",
-            success: function(data) {
-                sideBuild(data);
-            },
-            error: function(e) {
-                console.log(e);
-            }
-        });
+
+        // 这里的快捷方式以localStorage为准,但实际肯定以服务器的为准啦
+        if(ccc.getStorage("shortcutArr")){// localStorage里面也叫shortcutArr
+            shortcutArr = ccc.getStorage("shortcutArr");
+            sideBuild(shortcutArr);
+        }else{
+            $.ajax({
+                type: "get",
+                url: "./js/side.js",
+                dataType: "json",
+                success: function(data) {
+                    shortcutArr = data;
+                    ccc.setStorage("shortcutArr",shortcutArr);// 储存localStorage
+
+                    sideBuild(shortcutArr);
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
+        }
+
     })();
 
     var isLogo = true; // 标记是从logo那里进入菜单吗,false为从侧栏添加按钮进入
@@ -119,14 +130,43 @@ $(function() {
 
     // 侧栏删除
     $(".shortcut-list").on("click", ".shortcutDel", function() {
-        var tar = $(this).parent();
         if (isEditing) {
+            var tar = $(this).parent();
+            var _index = $(this).index(".l-c .shortcutDel");// .l-c 是为了避免模板的影响
             tar.css("transform","translate3d(-100%,0,0)");
             var timer = setTimeout(function(){
                 tar.slideUp(200,"linear",function(){
                     tar.remove();
+
+                    shortcutArr.remove(_index);
+                    ccc.setStorage("shortcutArr",shortcutArr);
                 });
             },200);
+        }
+    });
+
+    // 侧栏向上 向下
+    $(".shortcut-list").on("click",".shortcutUp",function(){
+        if (isEditing){
+            var tar = $(this).parent();
+            var _index = $(this).index(".l-c .shortcutUp");//.l-c 是为了避免模板的影响
+            if(_index>0){// 向上 不是第一个
+                tar.insertBefore(tar.prev());
+                shortcutArr.exchageUp(_index);
+                ccc.setStorage("shortcutArr",shortcutArr);
+            }
+        }
+    });
+    $(".shortcut-list").on("click",".shortcutDown",function(){
+        if(isEditing){
+            var tar = $(this).parent();
+            var _index = $(this).index(".l-c .shortcutDown");//.l-c 是为了避免模板的影响
+            var len = $(".l-c .shortcut-item").size();
+            if(_index<len-1){
+                tar.insertAfter(tar.next());
+                shortcutArr.exchageDown(_index);
+                ccc.setStorage("shortcutArr",shortcutArr);
+            }
         }
     });
 
@@ -253,6 +293,9 @@ $(function() {
                 var obj = new singleObj(theUrl,id,name,icon);
                 if($(".l-c [data-id=" + id + "]").length == 0){//没有这个快捷方式
                     sideSingle(obj);
+
+                    shortcutArr.push(obj);
+                    ccc.setStorage("shortcutArr",shortcutArr);
                 }
             }
         });
