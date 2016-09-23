@@ -63,6 +63,22 @@ $(function() {
     var isLogo = true; // 标记是从logo那里进入菜单吗,false为从侧栏添加按钮进入
     var isEditing = false; // 标记侧栏是否在编辑中
 
+
+    /*
+     *  右边下拉
+     */
+    $(".msg").on("click",function(){
+        var that = $(this);
+        if(!that.hasClass("active")){
+            that.addClass("active");
+            $("#right").toggleClass("short");//测试
+            $("#right").addClass("active");
+        }else{
+            that.removeClass("active");
+            $("#right").removeClass("active");
+        }
+    });
+
     /*
      *  侧栏
      */

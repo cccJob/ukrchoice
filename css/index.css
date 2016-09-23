@@ -56,7 +56,7 @@
 }
 #top .top-btn-list {
   float: right;
-  margin: 0 30px 0 0;
+  margin: 0 50px 0 0;
 }
 #top .top-btn-list .top-btn-item {
   float: left;
@@ -146,6 +146,12 @@
 #right .r-c .msg-list .msg-item div {
   padding: 10px 5px 10px 5px;
   border-top: 1px dashed #ccc;
+}
+#right.short .msg-item:nth-of-type(n+6) {
+  display: none;
+}
+#right.short .msg-item:nth-of-type(n+6).always {
+  display: block;
 }
 /*
  *左边侧栏

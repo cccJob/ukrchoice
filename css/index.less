@@ -60,7 +60,7 @@ body {}
     }
     .top-btn-list{
         float: right;
-        margin: 0 30px 0 0;
+        margin: 0 50px 0 0;
         .top-btn-item{
             float: left;
             width:40px;
@@ -161,7 +161,12 @@ body {}
     }
 }
 #right.short{//这个只是用于测试
-
+    .msg-item:nth-of-type(n+6){
+        display:none;
+        &.always{
+            display:block;
+        }
+    }
 }
 
 /*
