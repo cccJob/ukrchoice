@@ -328,6 +328,37 @@ $(function() {
         ccc.setStorage("isIcon", !isIcon); //保存切换后的状态;
     });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ *
+ * 全局操作
+ *
+ */
+
+
+
+
     // 键盘按键操作
     $(window).on("keydown", function(e) {
         console.log(e.keyCode);
@@ -336,8 +367,13 @@ $(function() {
             if (e.keyCode == 27) { //Esc
                 if ($("#menu").hasClass("active")) { //菜单
                     menuHid();
-                } else if ($(".move").size() > 0) { //侧栏编辑
-                    sideEditOut($(".shortcut-edit"));
+                } else  {
+                    if($(".move").size() > 0){ //侧栏编辑
+                        sideEditOut($(".shortcut-edit"));
+                    }
+                    if($("#right").hasClass("active")){
+                        $("#right,.msg").removeClass("active");
+                    }
                 }
             }
             if (e.ctrlKey && e.keyCode == 79) {
