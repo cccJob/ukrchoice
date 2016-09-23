@@ -70,8 +70,8 @@
   position: relative;
   height: 55px;
   border-bottom: 1px solid #232323;
-  transition: all 0.2s;
   overflow: hidden;
+  transition: transform .2s;
 }
 #left .l-c .shortcut-list .shortcut-item a {
   position: relative;

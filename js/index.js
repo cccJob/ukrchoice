@@ -11,6 +11,15 @@
 
 */
 $(function() {
+    function singleObj(url,id,name,icon){
+        this.url = url;
+        this.id = id;
+        this.name = name;
+        this.icon = icon;
+    }
+
+    var shortcutArr ;//快捷方式数组,用于存储在localStorage;
+
     (function() {
         if (ccc.getStorage("isIcon")) {
             var isIcon = !(ccc.getStorage("isIcon") == "true");
@@ -110,8 +119,14 @@ $(function() {
 
     // 侧栏删除
     $(".shortcut-list").on("click", ".shortcutDel", function() {
+        var tar = $(this).parent();
         if (isEditing) {
-            console.log($(this).index(".shortcutDel"));
+            tar.css("transform","translate3d(-100%,0,0)");
+            var timer = setTimeout(function(){
+                tar.slideUp(200,"linear",function(){
+                    tar.remove();
+                });
+            },200);
         }
     });
 
@@ -224,16 +239,21 @@ $(function() {
 
         // 菜单 a标签 点击
         $(".menu-c-m-r a").on("click", function() {
+            var that = $(this);
+            var theUrl = that.attr("data-url");
+            var id = that.attr("data-id");
+            var name = that.attr("data-name");
+            var icon = that.attr("data-icon");
             if (isLogo) {
-                var that = $(this);
-                var theUrl = that.attr("data-url");
-                var id = that.attr("data-id");
-                console.log(id);
-                $("[data-id=" + id + "]").addClass("active").parent().siblings().find(".sBtn").removeClass("active");;
+                // 让侧栏对应的快捷方式高亮
+                $(".l-c [data-id=" + id + "]").addClass("active").parent().siblings().find(".sBtn").removeClass("active");;
                 menuHid();
                 $("#ifr").attr("src", theUrl);
             } else {
-
+                var obj = new singleObj(theUrl,id,name,icon);
+                if($(".l-c [data-id=" + id + "]").length == 0){//没有这个快捷方式
+                    sideSingle(obj);
+                }
             }
         });
     }

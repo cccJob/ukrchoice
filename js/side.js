@@ -1,11 +1,9 @@
-[
-    {
+[{
         "url": "about:blank",
         "icon": "default",
         "name": "空白",
         "id": "0"
-    },
-    {
+    }, {
         "url": "http://www.baidu.com",
         "icon": "baidu",
         "name": "百度",
@@ -37,12 +35,8 @@
         "name": "京东",
         "id": "6"
     }, {
-        "url": "http://www.taobao.com",
-        "name": "淘宝",
-        "id": "7"
-    }, {
-        "url": "http://www.tmall.com",
-        "name": "天猫",
-        "id": "8"
+        "url": "home.html",
+        "name": "home",
+        "id": "9"
     }
 ]
