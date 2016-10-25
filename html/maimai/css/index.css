@@ -1,0 +1,564 @@
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:focus,
+input:focus,
+p:focus,
+div:focus {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+#commonFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #eaeaea;
+  background: #fff;
+}
+#commonFooter a.footbtn {
+  position: relative;
+  float: left;
+  width: 33.333333333333333333%;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #bdbdbd;
+}
+#commonFooter a.footbtn:before {
+  content: "";
+  display: block;
+  height: 1.5rem;
+  margin: 0.2rem 0 0.1rem;
+  width: 100%;
+}
+#commonFooter a.footbtn.active {
+  color: #ffa726;
+}
+#commonFooter a.footbtn .num {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 27%;
+  width: 16px;
+  height: 16px;
+  padding: 1px 0 0;
+  line-height: 16px;
+  border-radius: 20px;
+  background: #ef5350;
+  color: #fff;
+  overflow: hidden;
+  font-size: 10px;
+}
+#commonFooter .footbtn1:before {
+  background: url(../img/index_icon1.png) center / contain no-repeat;
+}
+#commonFooter .footbtn2:before {
+  background: url(../img/index_icon2.png) center / contain no-repeat;
+}
+#commonFooter .footbtn3:before {
+  background: url(../img/index_icon3.png) center / contain no-repeat;
+}
+#commonFooter .footbtn1.active:before {
+  background: url(../img/index_icon11.png) center / contain no-repeat;
+}
+#commonFooter .footbtn2.active:before {
+  background: url(../img/index_icon22.png) center / contain no-repeat;
+}
+#commonFooter .footbtn3.active:before {
+  background: url(../img/index_icon33.png) center / contain no-repeat;
+}
+/* 头部 */
+.head {
+  line-height: 2.5rem;
+  padding: 0 1rem;
+  background: #FFA726;
+  color: #fff;
+}
+.head h1 {
+  font-size: 1rem;
+}
+.head h1:before {
+  content: "";
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: -3px 8px 0 0;
+  vertical-align: middle;
+  background: center / contain no-repeat;
+}
+.main {
+  padding: 0 1rem 0;
+  color: #757575;
+  font-size: 0.8rem;
+  margin: 0 0 30px 0;
+}
+.submit {
+  width: 100%;
+  padding: 0.65rem;
+  border: none;
+  border-radius: 5px;
+  margin: 15px 0 0;
+  background: #ffa726;
+  color: #fff;
+  font-size: 0.9rem;
+}
+.submit:active {
+  opacity: 0.8;
+}
+/* 找回密码*/
+#zhaohuimima .head h1:before {
+  background-image: url(../img/password01.png);
+}
+#zhaohuimima .main label {
+  display: block;
+}
+#zhaohuimima .main input {
+  width: 100%;
+  padding: 0.65rem;
+  box-sizing: border-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: #757575;
+}
+#zhaohuimima .main .p-list .p-item {
+  margin: 15px 0;
+}
+#zhaohuimima .main .p-list .p-item label .p-title {
+  display: inline-block;
+  margin: 3px 0;
+}
+#zhaohuimima .main .p-list .p-item label .p-cont-pw {
+  position: relative;
+}
+#zhaohuimima .main .p-list .p-item label .p-cont-pw input {
+  padding: 0.65rem 2.3rem 0.65rem 0.65rem;
+}
+#zhaohuimima .main .p-list .p-item label .p-cont-pw a {
+  position: absolute;
+  top: 0.53rem;
+  right: 0.53rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: url(../img/password02.png) center / contain no-repeat;
+}
+#zhaohuimima .main .p-list .p-item label .p-cont-pw a.active {
+  background: url(../img/password03.png) center / contain no-repeat;
+}
+#zhaohuimima .main .p-list .p-item label .p-cont-apart input {
+  float: left;
+  width: 48%;
+}
+#zhaohuimima .main .p-list .p-item label .p-cont-apart .msg-id {
+  float: right;
+  width: 48%;
+  padding: 0.65rem 0;
+  border: 1px solid #66bb6a;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background: #66bb6a;
+  text-align: center;
+  color: #fff;
+}
+#zhaohuimima .main .p-list .p-item label .p-cont-apart .pic-id {
+  float: right;
+  width: 48%;
+  padding: 0.65rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+/* 登录 */
+#denglu .main .logo {
+  width: 6rem;
+  height: 6rem;
+  line-height: 6rem;
+  margin: 5rem auto 2rem;
+  background: #eee;
+  text-align: center;
+}
+#denglu .main .logo img {
+  max-width: 90%;
+  vertical-align: middle;
+}
+#denglu .main label {
+  display: block;
+}
+#denglu .main input {
+  width: 100%;
+  padding: 0.65rem;
+  box-sizing: border-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: #757575;
+}
+#denglu .main .p-list .p-item {
+  margin: 15px 0;
+}
+#denglu .main .p-list .p-item label .p-cont-pw {
+  position: relative;
+}
+#denglu .main .p-list .p-item label .p-cont-pw input {
+  padding: 0.65rem 2.3rem 0.65rem 0.65rem;
+}
+#denglu .main .p-list .p-item label .p-cont-pw a {
+  position: absolute;
+  top: 0.53rem;
+  right: 0.53rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: url(../img/password02.png) center / contain no-repeat;
+}
+#denglu .main .p-list .p-item label .p-cont-pw a.active {
+  background: url(../img/password03.png) center / contain no-repeat;
+}
+#denglu .main .h-f {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 0.8rem;
+}
+#denglu .main .h-f p {
+  display: inline-block;
+}
+#denglu .main .h-f p a {
+  color: #ff7043;
+  padding: 0 0.8rem 0;
+}
+#denglu .main .h-f p a:nth-of-type(1) {
+  border-right: 1px solid #e0e0e0;
+}
+#denglu .submit {
+  margin: 0;
+}
+#denglu .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  line-height: 2.5rem;
+  width: 100%;
+  border-top: 1px solid #eaeaea;
+  text-align: center;
+  font-size: 0.8rem;
+  background: #f5f5f5;
+}
+#denglu .footer a {
+  color: #ff7043;
+}
+/* 注册 */
+#zhuce .head h1:before {
+  background-image: url(../img/register-01.png);
+}
+#zhuce .main label {
+  display: block;
+}
+#zhuce .main input {
+  width: 100%;
+  padding: 0.65rem;
+  box-sizing: border-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: #757575;
+}
+#zhuce .main .p-list .p-item {
+  margin: 15px 0;
+}
+#zhuce .main .p-list .p-item label .p-title {
+  display: inline-block;
+  margin: 3px 0;
+}
+#zhuce .main .p-list .p-item label .p-cont-apart input {
+  float: left;
+  width: 48%;
+}
+#zhuce .main .p-list .p-item label .p-cont-apart select {
+  padding: 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  -webkit-appearance: none;
+  color: #757575;
+  background: #fff;
+}
+#zhuce .main .p-list .p-item label .p-cont-apart select:nth-of-type(1) {
+  float: left;
+  width: 48%;
+}
+#zhuce .main .p-list .p-item label .p-cont-apart select:nth-of-type(2) {
+  float: right;
+  width: 48%;
+}
+#zhuce .main .p-list .p-item label .p-cont-apart .msg-id {
+  float: right;
+  width: 48%;
+  padding: 0.65rem 0;
+  border: 1px solid #66bb6a;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background: #66bb6a;
+  text-align: center;
+  color: #fff;
+}
+#zhuce .xieyi {
+  margin: 1.65rem 0 1rem;
+}
+#zhuce .xieyi a {
+  color: #42a5f5;
+}
+/* 兴趣选择 */
+#xingquxuanze {
+  opacity: 0;
+}
+#xingquxuanze .head h1:before {
+  background-image: url(../img/interest-01.png);
+}
+#xingquxuanze .main .part p {
+  position: relative;
+  margin: 1rem 0 0.3rem;
+}
+#xingquxuanze .main .part ul li {
+  box-sizing: border-box;
+  float: left;
+  width: 23%;
+  padding: 2.2% 0;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  margin: 1.5% 2.6666666666666666% 1.5% 0;
+  text-align: center;
+  background: #fff;
+}
+#xingquxuanze .main .part ul li.active {
+  background: #FFA726;
+  color: #fff;
+  border-color: #FFA726;
+}
+#xingquxuanze .main .part ul li:nth-of-type(4n) {
+  margin-right: 0;
+}
+#xingquxuanze .main .part.arrow {
+  height: 4.4rem;
+  overflow: hidden;
+  transition: height linear 0.1s;
+}
+#xingquxuanze .main .part.arrow i {
+  position: absolute;
+  top: 6%;
+  right: 0;
+  height: 0.8rem;
+  width: 0.8rem;
+  background: url(../img/aroow.png) center / contain no-repeat;
+  transition: transform linear 0.1s;
+}
+#xingquxuanze .main .part.arrow.active {
+  height: auto;
+}
+#xingquxuanze .main .part.arrow.active i {
+  transform: rotate3d(0, 0, 1, 180deg);
+}
+#xingquxuanze .main .part.part1 li {
+  width: 48.5%;
+  margin: 0 3% 0 0;
+}
+#xingquxuanze .main .part.part1 li:nth-of-type(2) {
+  margin: 0;
+}
+/* 查看资料 */
+#chakanziliao .head h1:before {
+  background-image: url(../img/user.png);
+}
+#chakanziliao .main {
+  font-size: 0.9rem;
+}
+#chakanziliao .main .ziliao_img {
+  width: 25%;
+  margin: 1.2rem auto;
+}
+#chakanziliao .main .ziliao_img img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+#chakanziliao .ziliao_text {
+  overflow: hidden;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+}
+#chakanziliao .ziliao_text .ziliao_text_left {
+  float: left;
+  width: 5.5em;
+  color: #bdbdbd;
+}
+#chakanziliao .ziliao_text .ziliao_text_right {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #757575;
+}
+#chakanziliao a.ziliao_text {
+  position: relative;
+  display: block;
+  padding-right: 1rem;
+  background: url(../img/arrow.png) right center / 0.8rem no-repeat;
+}
+#chakanziliao .ziliao_2wm {
+  margin: 1rem 0 1rem;
+  text-align: center;
+}
+#chakanziliao .ziliao_2wm img {
+  max-width: 40%;
+}
+#chakanziliao .ziliao_2wm .ziliao_2wm_text {
+  margin: 0.5rem 0;
+}
+/* 市集 */
+#shiji #header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 2.2rem;
+  color: #fff;
+  background: #ffa726;
+  font-family: "微软雅黑";
+  transition: background 0.5s;
+}
+#shiji #header .head_left {
+  position: relative;
+  box-sizing: border-box;
+  float: left;
+  width: 4rem;
+  padding: 0 0 0 0.5rem;
+  font-size: 0.8rem;
+  color: #fff;
+  transition: color 0.5s;
+}
+#shiji #header .head_left i:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0.8rem;
+  width: 1rem;
+  height: 2.2rem;
+  background: url(../img/arrow_down.png) center / 0.6rem no-repeat;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+#shiji #header .head_left i:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0.8rem;
+  width: 1rem;
+  height: 2.2rem;
+  background: url(../img/arrow_down_orange.png) center / 0.6rem no-repeat;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+#shiji #header .head_right {
+  float: right;
+  width: 4rem;
+  height: 2.2rem;
+  background: url(../img/shuaixin.png) right 0.5rem center / 1rem no-repeat;
+}
+#shiji #header .head_middle {
+  overflow: hidden;
+  text-align: center;
+  font-size: 0.9rem;
+}
+#shiji #header .head_middle a {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 1.6em;
+  height: 2.2rem;
+  margin: 0 0.6rem 0;
+}
+#shiji #header .head_middle a.active {
+  border-bottom: 3px solid #fff;
+}
+#shiji #header.infilter {
+  background: #fff;
+  pointer-events: none;
+}
+#shiji #header.infilter .head_left {
+  color: #ffa726;
+}
+#shiji #header.infilter .head_left i:after {
+  opacity: 0;
+}
+#shiji #header.infilter .head_left i:before {
+  opacity: 1;
+}
+#shiji .main {
+  margin: 2.7rem 0 3rem 0;
+}
+#shiji .main .shiji_search {
+  display: block;
+  line-height: 1.5rem;
+  padding: 2px 0 0 0 ;
+  margin: 0.5rem 0;
+  text-align: center;
+  background: #fff;
+  font-size: 0.7rem;
+  border-radius: 5px;
+}
+#shiji .main .shiji_search span:before {
+  content: "";
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin: -3px 5px 0 0;
+  vertical-align: middle;
+  background: url(../img/search.png) center / contain no-repeat;
+}
+#shiji .main .sj_list {
+  margin: 0.4rem -1rem;
+  background: #fff;
+}
+#shiji .main .sj_list .sj_list_con {
+  padding: 0.5rem;
+}
+#shiji .main .sj_list .sj_list_con .sj_list_img {
+  float: left;
+  width: 4rem;
+}
+#shiji .main .sj_list .sj_list_con .sj_list_img i {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 7px;
+  margin: 0 0 0 0.5rem;
+  background: center / cover no-repeat;
+}
+#shiji .main .sj_list .sj_list_con .sj_list_text {
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+#shiji .main .sj_list .sj_list_con .sj_list_text .sj_list_texttitle .sj_title1 {
+  float: left;
+}
+#shiji .main .sj_list .sj_list_con .sj_list_text .sj_list_texttitle .sj_title2 {
+  float: right;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 10px;
+}
+#shiji .main .sj_list .sj_list_con .sj_list_text .sj_list_textdetail .sj_detail {
+  margin: 0.5rem 0;
+}
+#shiji .main .sj_list .sj_list_con .sj_list_text .sj_list_textdetail .sj_tag span {
+  box-sizing: border-box;
+  float: left;
+  width: 22%;
+  padding: 0.15rem 0;
+  margin-right: 3%;
+  border: 1px solid #ffa726;
+  border-radius: 100px;
+  color: #ffa726;
+  text-align: center;
+  font-size: 0.75rem;
+}
+#shiji .main .sj_more {
+  display: block;
+  padding: 0.5rem;
+  text-align: center;
+}
