@@ -17,7 +17,7 @@
                 that.attr("style",that.attr("style").replace(/\s+/g,"").replace("height:auto;",""));//去除css样式height
                 $("#xingquxuanze").css("opacity",1);
             });
-            $("i").on("click",function(){
+            $(".arrow i").on("click",function(){
                 var that  = $(this);
                 var part = that.parents(".part");
                 if(part.is(".active")){
@@ -26,7 +26,7 @@
                     part.css("height",part.attr("data-height")).addClass("active");
                 }
             });
-            $("li").on("click",function(){
+            $(".filter li").on("click",function(){
                 var that = $(this);
                 if (that.is(".active")) {
                     that.removeClass("active");
@@ -43,7 +43,7 @@
         <div class="head">
             <h1>兴趣选择(可多选)</h1>
         </div>
-        <div class="main">
+        <div class="main filter">
             <!-- 品名 -->
             <div class="part part1">
                 <p><span>品名</span><i></i></p>
