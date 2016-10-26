@@ -827,6 +827,18 @@ div:focus {
   display: table-cell;
   padding: 0.3rem 0.1rem 0.3rem 0;
 }
+#cangku .main .cangku-item .item-detail p > :nth-child(1) {
+  width: 16%;
+}
+#cangku .main .cangku-item .item-detail p > :nth-child(2) {
+  width: 28%;
+}
+#cangku .main .cangku-item .item-detail p > :nth-child(3) {
+  width: 28%;
+}
+#cangku .main .cangku-item .item-detail p > :nth-child(4) {
+  width: 28%;
+}
 #cangku .main .cangku-item .item-detail .detail-line1 span,
 #cangku .main .cangku-item .item-detail .detail-line1 i {
   border-bottom: 1px solid #eaeaea;
